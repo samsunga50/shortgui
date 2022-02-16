@@ -1,16 +1,17 @@
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class Node {
 
     private String name;
-    private LinkedList<Node> shortestPath = new LinkedList<>(); // can be removed
-    private double distance = Integer.MAX_VALUE;
+
+    // distance set to "infinity"
+    private double distance = Double.MAX_VALUE;
     private int previous = -2;
     private Map<Node, Double> adjacentNodes = new HashMap<>();
 
+
+    // x and y coordinates
     private int x;
     private int y;
 
@@ -47,14 +48,6 @@ public class Node {
         this.distance = distance;
     }
 
-    public List<Node> getShortestPath() {
-        return shortestPath;
-    }
-
-    public void setShortestPath(LinkedList<Node> shortestPath) {
-        this.shortestPath = shortestPath;
-    }
-
     public int getX() {
         return x;
     }
@@ -79,6 +72,4 @@ public class Node {
     public double calculateDistance(Node A){
         return Math.pow((Math.pow(A.getX() - this.getX(), 2) + Math.pow(A.getY() - this.getY(), 2)), 0.5);
     }
-
-
 }

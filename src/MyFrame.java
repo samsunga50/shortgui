@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class MyFrame extends JFrame {
     // JButton button;
@@ -20,24 +18,6 @@ public class MyFrame extends JFrame {
 
     public static boolean display = false;
 
-
-    /*
-    //start node
-    static JTextField tshort;
-
-    // JFrame
-    static JFrame fshort;
-
-    // JButton
-    static JButton sButtshort;
-
-    // label to display text
-    static JLabel lshort;
-
-    public static boolean displayshort = false;
-
-
-     */
 
     MyFrame() {
 
@@ -197,12 +177,12 @@ public class MyFrame extends JFrame {
         if (display){
             // shortest path
 
-            g2D.setPaint(Color.GREEN);
-            for (int i = 0; i < Main.path.get(Main.start).size(); i += 2) {
+            g2D.setPaint(Color.BLUE);
+            g2D.setStroke(new BasicStroke(2));
+            for (int i = 0; i < Main.path.get(Main.start).size() - 1; i++) {
                 g2D.drawLine(Main.nodes.get(Main.path.get(Main.start).get(i)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i)).getY() + 5, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getY() + 5);
             }
-            //g2D.clearRect(0, 0, getWidth(), getHeight());
-            //repaint();
+
         }
 
     }
