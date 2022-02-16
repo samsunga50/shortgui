@@ -22,15 +22,18 @@ public class Dijkstra {
         int count = Main.nodes.size();
 
         ArrayList<Integer> path = new ArrayList<>();
+
+        // stores the nodes which have been traversed
         ArrayList<Integer> adjacents = new ArrayList<>();
+
+
         Main.nodes.get(start).setDistance(0);
-
-
         path.add(start);
 
-        for (int i = 0; i < count; i++) {
-
+        do {
             int neighbours = Main.nodes.get(start).getAdjacentNodes().size();
+
+            // for finding index of adjacent nodes
             for (int j = 0; j < count; j++) {
                 if (Main.nodes.get(start).getAdjacentNodes().containsKey(Main.nodes.get(j)) && !path.contains(j)) {
 
@@ -75,7 +78,9 @@ public class Dijkstra {
 
                 // Main.nodes.get(adjacents.get(destinationpath)).setPrevious(-1);
             }
-        }
+
+        } while (!adjacents.isEmpty()); // if adjacents is empty, all nodes are part of the path
+
         return path;
     }
 
