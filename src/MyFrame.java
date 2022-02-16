@@ -21,6 +21,7 @@ public class MyFrame extends JFrame {
     public static boolean display = false;
 
 
+    /*
     //start node
     static JTextField tshort;
 
@@ -35,6 +36,8 @@ public class MyFrame extends JFrame {
 
     public static boolean displayshort = false;
 
+
+     */
 
     MyFrame() {
 
@@ -83,17 +86,18 @@ public class MyFrame extends JFrame {
         //this.add(button);
 
         f = new JFrame();
-        fshort = new JFrame();
+
+        //fshort = new JFrame();
 
         f.setLocation(getWidth() / 2 , getHeight() / 2);
-        fshort.setLocation(getWidth() / 2 , getHeight() / 2);
+        //fshort.setLocation(getWidth() / 2 , getHeight() / 2);
 
         l = new JLabel("Enter number of nodes please");
-        lshort = new JLabel("Enter valid name of starting node: ");
+        //lshort = new JLabel("Enter valid name of starting node: ");
 
         // create a new button
         sButt = new JButton("submit");
-        sButtshort = new JButton("submit");
+        //sButtshort = new JButton("submit");
 
         // create an object of the text class
 
@@ -102,11 +106,11 @@ public class MyFrame extends JFrame {
 
         // create an object of JTextField with 16 columns
         t = new JTextField(15);
-        tshort = new JTextField(15);
+        //tshort = new JTextField(15);
 
 
-        sButt.addActionListener(e -> {Main.n = Integer.parseInt(t.getText());Main.createNodes(); display = true; repaint(); f.setVisible(false); this.setVisible(true); fshort.setVisible(true);});
-        sButtshort.addActionListener(e -> {Main.start = Integer.parseInt(tshort.getText()); Main.displayPath(); ; displayshort = true; repaint(); fshort.setVisible(false);});
+        sButt.addActionListener(e -> {Main.n = Integer.parseInt(t.getText());Main.createNodes(); Main.displayPath(); display = true; repaint(); f.setVisible(false); this.setVisible(true);});
+        //sButtshort.addActionListener(e -> {Main.start = Integer.parseInt(tshort.getText()); Main.displayPath(); ; displayshort = true; repaint(); fshort.setVisible(false);});
 
         // create a panel to add buttons and text-field
         JPanel p = new JPanel();
@@ -117,21 +121,24 @@ public class MyFrame extends JFrame {
         p.add(sButt);
         p.add(l);
 
+        /*
         pshort.add(tshort);
         pshort.add(sButtshort);
         pshort.add(lshort);
 
 
+         */
+
         // add panel to frame
         f.add(p);
-        fshort.add(pshort);
+        //fshort.add(pshort);
 
         // set the size of frame
         f.setSize(300, 100);
-        fshort.setSize(300, 100);
+        //fshort.setSize(300, 100);
 
         f.setVisible(true);
-        fshort.setVisible(false);
+        //fshort.setVisible(false);
 
 
 
@@ -179,18 +186,20 @@ public class MyFrame extends JFrame {
                     if (Main.nodes.get(i).getAdjacentNodes().get(Main.nodes.get(j)) != null)
                         g2D.drawLine(Main.nodes.get(i).getX() + 10, Main.nodes.get(i).getY() + 5, Main.nodes.get(j).getX() + 10, Main.nodes.get(j).getY() + 5);
                 }
+
+
             }
 
 
 
         }
 
-        if (displayshort){
+        if (display){
             // shortest path
 
             g2D.setPaint(Color.GREEN);
-            for (int i = 0; i < Main.path.size(); i += 2) {
-                g2D.drawLine(Main.nodes.get(Main.path.get(i)).getX() + 10, Main.nodes.get(Main.path.get(i)).getY() + 5, Main.nodes.get(Main.path.get(i + 1)).getX() + 10, Main.nodes.get(Main.path.get(i + 1)).getY() + 5);
+            for (int i = 0; i < Main.path.get(Main.start).size(); i += 2) {
+                g2D.drawLine(Main.nodes.get(Main.path.get(Main.start).get(i)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i)).getY() + 5, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getY() + 5);
             }
             //g2D.clearRect(0, 0, getWidth(), getHeight());
             //repaint();

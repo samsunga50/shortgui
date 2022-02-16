@@ -10,7 +10,22 @@ public class Main {
     public static int n = 7;
     public static int start = 0;
     public static ArrayList<Node> nodes = new ArrayList<Node>();
-    public static ArrayList<Integer> path = new ArrayList<>();
+    public static ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
+    public static int findMin(double[] distance){
+        double min = Double.MAX_VALUE;
+
+        int size = distance.length;
+        int index = -1;
+
+        for (int i = 0; i < size; i++){
+            if (distance[i] < min){
+                min = distance[i];
+                index = i;
+            }
+        }
+
+        return index;
+    }
 
     public static void createNodes(){
 
@@ -50,7 +65,22 @@ public class Main {
     public static void displayPath(){
         Dijkstra T = new Dijkstra();
 
-        path = (T.dijkstra(start));
+        double[] distance = new double[n];
+
+        for (int i = 0; i < n; i++){
+            path.add(T.dijkstra(i));
+            distance[i] = nodes.get(path.get(i).get(path.get(i).size() - 1)).getDistance();
+        }
+
+        for (int i = 0; i < n; i++){
+            System.out.println(i + ": " + distance[i]);
+        }
+
+        start = findMin(distance);
+
+        System.out.println("Shortest path is " + path.get(start));
+
+
     }
     
     public static void main(String[] args) {

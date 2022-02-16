@@ -36,11 +36,17 @@ public class Dijkstra {
                     double distance = Main.nodes.get(start).calculateDistance(Main.nodes.get(j));
                     double totalDistance = distance + Main.nodes.get(start).getDistance();
 
+                    /*
                     if (totalDistance < Main.nodes.get(j).getDistance()) {
                         Main.nodes.get(j).setPrevious(start);
                         Main.nodes.get(j).setDistance(totalDistance);
                         System.out.println("dist: " + totalDistance + " for " + j);
                     }
+                     */
+
+                    Main.nodes.get(j).setPrevious(start);
+                    Main.nodes.get(j).setDistance(totalDistance);
+                    System.out.println("dist: " + totalDistance + " for " + j);
 
                     if (!adjacents.contains(j))
                     {
@@ -55,9 +61,13 @@ public class Dijkstra {
             int destinationpath = findMinDistance(adjacents);
             if (destinationpath != -1){
                 // if shortest destination has a different starting node than start
+
+                /*
                 if (Main.nodes.get(adjacents.get(destinationpath)).getPrevious() != start){
                     start = Main.nodes.get(adjacents.get(destinationpath)).getPrevious();
                 }
+                 */
+
                 path.add(start);
                 path.add(adjacents.get(destinationpath));
                 start = adjacents.get(destinationpath);
