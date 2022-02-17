@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,9 @@ public class Node {
     private double distance = Double.MAX_VALUE;
     private int previous = -2;
     private Map<Node, Double> adjacentNodes = new HashMap<>();
+
+    
+    private ArrayList<Integer> shortestPath = new ArrayList<>();
 
 
     // x and y coordinates
@@ -67,6 +71,14 @@ public class Node {
 
     public void setPrevious(int previous) {
         this.previous = previous;
+    }
+
+    public ArrayList<Integer> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(ArrayList<Integer> shortestPath) {
+        this.shortestPath = shortestPath;
     }
 
     public double calculateDistance(Node A){

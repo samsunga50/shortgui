@@ -13,9 +13,6 @@ public class Main {
 
     public static ArrayList<Node> nodes = new ArrayList<Node>();
 
-    // creates an ArrayList of ArrayLists of possible paths
-    public static ArrayList<ArrayList<Integer>> path = new ArrayList<ArrayList<Integer>>();
-
     // takes an array of type double and returns the index of the smallest element
     public static int findMin(double[] distance){
         double min = Double.MAX_VALUE;
@@ -75,8 +72,14 @@ public class Main {
 
 
         for (int i = 0; i < n; i++){
-            path.add(T.dijkstra(i));
-            distance[i] = nodes.get(path.get(i).get(path.get(i).size() - 1)).getDistance();
+
+            //temporary variable to store shortest path of each node
+            ArrayList<Integer> path = T.dijkstra(i);
+
+            nodes.get(i).setShortestPath(path);
+
+            //getting distance of last node in path, which is the distance of the path
+            distance[i] = nodes.get(path.get(path.size() - 1)).getDistance();
         }
 
         for (int i = 0; i < n; i++){
@@ -87,7 +90,7 @@ public class Main {
         start = findMin(distance);
 
 
-        System.out.println("Shortest path is " + path.get(start) + " with distance: " + distance[start]);
+        System.out.println("Shortest path is " + nodes.get(start).getShortestPath() + " with distance: " + distance[start]);
     }
     
     public static void main(String[] args) {

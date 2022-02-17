@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class MyFrame extends JFrame {
@@ -179,8 +180,12 @@ public class MyFrame extends JFrame {
 
             g2D.setPaint(Color.BLUE);
             g2D.setStroke(new BasicStroke(2));
-            for (int i = 0; i < Main.path.get(Main.start).size() - 1; i++) {
-                g2D.drawLine(Main.nodes.get(Main.path.get(Main.start).get(i)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i)).getY() + 5, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getX() + 10, Main.nodes.get(Main.path.get(Main.start).get(i + 1)).getY() + 5);
+
+            //temporary variable to store shortest path of each node
+            ArrayList<Integer> path = Main.nodes.get(Main.start).getShortestPath();
+
+            for (int i = 0; i < path.size() - 1; i++) {
+                g2D.drawLine(Main.nodes.get(path.get(i)).getX() + 10, Main.nodes.get(path.get(i)).getY() + 5, Main.nodes.get(path.get(i + 1)).getX() + 10, Main.nodes.get(path.get(i + 1)).getY() + 5);
             }
 
         }
