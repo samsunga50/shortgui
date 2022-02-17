@@ -87,10 +87,11 @@ public class Main {
         start = findMin(distance);
 
 
-        System.out.println("Shortest path is " + path.get(start));
+        System.out.println("Shortest path is " + path.get(start) + " with distance: " + distance[start]);
     }
     
     public static void main(String[] args) {
+
         new MyFrame();
     }
 }

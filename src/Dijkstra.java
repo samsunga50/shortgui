@@ -31,12 +31,14 @@ public class Dijkstra {
         path.add(start);
 
         do {
-            int neighbours = Main.nodes.get(start).getAdjacentNodes().size();
+            // for each node adjacent to start
+            for (Node n: Main.nodes.get(start).getAdjacentNodes().keySet()) {
 
-            // for finding index of adjacent nodes
-            for (int j = 0; j < count; j++) {
-                if (Main.nodes.get(start).getAdjacentNodes().containsKey(Main.nodes.get(j)) && !path.contains(j)) {
+                //index of adjacent node in ArrayList nodes
+                int j = Integer.valueOf(n.getName());
 
+                //if node is not already part of path
+                if (!path.contains(j)) {
                     double distance = Main.nodes.get(start).calculateDistance(Main.nodes.get(j));
                     double totalDistance = distance + Main.nodes.get(start).getDistance();
 
@@ -76,7 +78,6 @@ public class Dijkstra {
 
                 System.out.println("start" + start);
 
-                // Main.nodes.get(adjacents.get(destinationpath)).setPrevious(-1);
             }
 
         } while (!adjacents.isEmpty()); // if adjacents is empty, all nodes are part of the path
