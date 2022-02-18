@@ -143,7 +143,7 @@ public class MyFrame extends JFrame {
             for (int i = 0; i < Main.n; i++) {
                 //draw the oval nodes
                 //set the nodes colour to be blue
-                g2D.setPaint(Color.BLUE);
+                g2D.setPaint(Color.RED);
                 g2D.setStroke(new BasicStroke(1));
                 g2D.drawOval(Main.nodes.get(i).getX(), Main.nodes.get(i).getY(), 20, 10);
                 g2D.fillOval(Main.nodes.get(i).getX(), Main.nodes.get(i).getY(), 20, 10);
@@ -155,8 +155,9 @@ public class MyFrame extends JFrame {
                 g2D.drawString(Main.nodes.get(i).getName(), Main.nodes.get(i).getX() - 10, Main.nodes.get(i).getY() - 10);
 
 
+                //draw edges
                 for (int j = 0; j < Main.n; j++){
-                    g2D.setPaint(Color.RED);
+                    g2D.setPaint(Color.GRAY);
                     if (Main.nodes.get(i).getAdjacentNodes().get(Main.nodes.get(j)) != null)
                         g2D.drawLine(Main.nodes.get(i).getX() + 10, Main.nodes.get(i).getY() + 5, Main.nodes.get(j).getX() + 10, Main.nodes.get(j).getY() + 5);
                 }
@@ -171,8 +172,8 @@ public class MyFrame extends JFrame {
         if (display){
             // shortest path
 
-            g2D.setPaint(Color.BLUE);
-            g2D.setStroke(new BasicStroke(2));
+            g2D.setPaint(Color.GREEN);
+            g2D.setStroke(new BasicStroke(3));
 
             //temporary variable to store shortest path of each node
             ArrayList<Integer> path = Main.nodes.get(Main.start).getShortestPath();
