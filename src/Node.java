@@ -11,7 +11,7 @@ public class Node {
     private int previous = -2;
     private Map<Node, Double> adjacentNodes = new HashMap<>();
 
-    
+
     private ArrayList<Integer> shortestPath = new ArrayList<>();
 
 

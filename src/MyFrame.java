@@ -135,17 +135,9 @@ public class MyFrame extends JFrame {
 
         Graphics2D g2D = (Graphics2D) g;
 
-        /*
-        g2D.setPaint(Color.red);
-        g2D.setStroke(new BasicStroke(5));
-        g2D.drawLine(0, 0, 500, 500);
-
-
-         */
-        /*
-        int[] xPoints = {20, 50 ,67, 167, 589, 345};
-        int[] yPoints = {459, 235, 456, 234, 34, 567};
-        */
+        // anti-aliasing for smoother lines
+        g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
 
         if (display){
             for (int i = 0; i < Main.n; i++) {
