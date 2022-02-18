@@ -148,9 +148,10 @@ public class MyFrame extends JFrame {
                 g2D.drawOval(Main.nodes.get(i).getX(), Main.nodes.get(i).getY(), 20, 10);
                 g2D.fillOval(Main.nodes.get(i).getX(), Main.nodes.get(i).getY(), 20, 10);
 
-                g2D.setPaint(Color.BLACK);
+
 
                 // display node name
+                g2D.setPaint(Color.BLACK);
                 g2D.drawString(Main.nodes.get(i).getName(), Main.nodes.get(i).getX() - 10, Main.nodes.get(i).getY() - 10);
 
 

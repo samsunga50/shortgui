@@ -38,8 +38,8 @@ public class Main {
         // nodes are assigned random x, y coordinates
         for (int i = 0; i < n; i++) {
             nodes.add(i, new Node("" + i));
-            nodes.get(i).setX(rand.nextInt(50, 1000));
-            nodes.get(i).setY(rand.nextInt(200, 800));
+            nodes.get(i).setX(rand.nextInt(100, 1100));
+            nodes.get(i).setY(rand.nextInt(100, 900));
         }
 
 
@@ -82,6 +82,7 @@ public class Main {
             distance[i] = nodes.get(path.get(path.size() - 1)).getDistance();
         }
 
+        System.out.println();
         for (int i = 0; i < n; i++){
             System.out.println(i + ": " + distance[i]);
         }
@@ -89,7 +90,7 @@ public class Main {
         // find the shortest path
         start = findMin(distance);
 
-
+        System.out.println();
         System.out.println("Shortest path is " + nodes.get(start).getShortestPath() + " with distance: " + distance[start]);
     }
     

@@ -9,7 +9,7 @@ public class Dijkstra {
             if (Main.nodes.get(adjacents.get(i)).getDistance() <= minimumDistance){
                     minimumDistance = Main.nodes.get(adjacents.get(i)).getDistance();
                     min = i;
-                    System.out.println("min: " + min);
+                    //System.out.println("min: " + min);
             }
         }
 
@@ -52,13 +52,13 @@ public class Dijkstra {
 
                     Main.nodes.get(j).setPrevious(start);
                     Main.nodes.get(j).setDistance(totalDistance);
-                    System.out.println("dist: " + totalDistance + " for " + j);
+                    //System.out.println("dist: " + totalDistance + " for " + j);
 
                     if (!adjacents.contains(j))
                     {
                         adjacents.add(j);
                     }
-                    System.out.println(adjacents);
+                    //System.out.println(adjacents);
 
                 } // if loop adjacent
             }
@@ -74,9 +74,9 @@ public class Dijkstra {
                 adjacents.remove(destinationpath);
                 Main.nodes.get(start).setPrevious(-1);
 
-                System.out.println("path: " + path);
+                //System.out.println("path: " + path);
 
-                System.out.println("start" + start);
+                //System.out.println("start" + start);
 
             }
 
