@@ -8,7 +8,9 @@ public class Node {
 
     // distance set to "infinity"
     private double distance = Double.MAX_VALUE;
+
     private int previous = -2;
+    
     private Map<Node, Double> adjacentNodes = new HashMap<>();
 
 
