@@ -83,6 +83,7 @@ public class Node {
         this.shortestPath = shortestPath;
     }
 
+    // calculates distance between this node and node A
     public double calculateDistance(Node A){
         return Math.pow((Math.pow(A.getX() - this.getX(), 2) + Math.pow(A.getY() - this.getY(), 2)), 0.5);
     }

@@ -9,7 +9,6 @@ public class Dijkstra {
             if (Main.nodes.get(adjacents.get(i)).getDistance() <= minimumDistance){
                     minimumDistance = Main.nodes.get(adjacents.get(i)).getDistance();
                     min = i;
-                    //System.out.println("min: " + min);
             }
         }
 
@@ -42,23 +41,14 @@ public class Dijkstra {
                     double distance = Main.nodes.get(start).calculateDistance(Main.nodes.get(j));
                     double totalDistance = distance + Main.nodes.get(start).getDistance();
 
-                    /*
-                    if (totalDistance < Main.nodes.get(j).getDistance()) {
-                        Main.nodes.get(j).setPrevious(start);
-                        Main.nodes.get(j).setDistance(totalDistance);
-                        System.out.println("dist: " + totalDistance + " for " + j);
-                    }
-                     */
-
                     Main.nodes.get(j).setPrevious(start);
                     Main.nodes.get(j).setDistance(totalDistance);
-                    //System.out.println("dist: " + totalDistance + " for " + j);
 
                     if (!adjacents.contains(j))
                     {
                         adjacents.add(j);
                     }
-                    //System.out.println(adjacents);
+
 
                 } // if loop adjacent
             }
@@ -66,18 +56,12 @@ public class Dijkstra {
 
             int destinationpath = findMinDistance(adjacents);
             if (destinationpath != -1){
-                // if shortest destination has a different starting node than start
 
                 path.add(adjacents.get(destinationpath));
                 start = adjacents.get(destinationpath);
 
                 adjacents.remove(destinationpath);
                 Main.nodes.get(start).setPrevious(-1);
-
-                //System.out.println("path: " + path);
-
-                //System.out.println("start" + start);
-
             }
 
         } while (!adjacents.isEmpty()); // if adjacents is empty, all nodes are part of the path
